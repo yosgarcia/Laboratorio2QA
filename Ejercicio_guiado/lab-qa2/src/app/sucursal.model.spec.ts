@@ -86,13 +86,13 @@ describe('Sucursal', () => {
   });
 
   it('c. Liquidar una cuenta y verificar que el número de cuentas disminuye en 1', () => {
+    when(cuenta.liquidar()).thenCall(() => { cliente.getCuentas().pop()})
     const cuentaMockito1 = instance(cuenta);
     const cuentaMockito2 = instance(cuenta);
     cliente.setCuentas(cuentaMockito1);
     cliente.setCuentas(cuentaMockito2);
     const numCuentasAntesLiquidacion = cliente.getCuentas().length;
     cuentaMockito1.liquidar();
-    cliente.getCuentas().pop(); 
     expect(cliente.getCuentas().length).toBe(numCuentasAntesLiquidacion -1);
 
   });
