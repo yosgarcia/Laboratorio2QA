@@ -36,7 +36,7 @@ import { mock, when, instance } from 'ts-mockito';
  *      - book1:
  *            titulo = 'Harry Potter'
  *            nombre autor = 'J.k. Rowling'
- *      - Nombre a Buscar: 'Antoine de Saint'
+ *      - Nombre a Buscar: 'Jeff Kinney'
  *  Resultado esperado: Al hacer el llamado a la función searchByAuthor, esta debería retornar 
  *                      una lista de libros vacia ya que no existe ningún libro en esa librería
  *                      que tenga un autor con nombre igual al nombre buscado.
@@ -86,7 +86,7 @@ describe('Clase Library', () => {
     let book1 = new Book('Harry Potter', mockito, 4);
 
     library.addBook(book1);
-    let nameToSearch = 'Antoine de Saint';
+    let nameToSearch = 'Jeff Kinney';
 
     let response = library.searchByAuthor(nameToSearch);
     expect(response.size()).toBe(0);
